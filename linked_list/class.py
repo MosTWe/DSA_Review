@@ -66,9 +66,15 @@ class LinkedList:
         temp = self.head
         for _ in range(index):
             temp = temp.next
-        return temp.value
+        return temp
         
-    #     return
+    def set_value(self, index, value):
+        temp = self.get(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
+
 
     # def prepend(self, value):
     #     return
@@ -85,7 +91,7 @@ class LinkedList:
 my_linked_list = LinkedList(4)
 my_linked_list.append(5)
 my_linked_list.print_list()
-print(my_linked_list.get(1))
+print(my_linked_list.set_value(1,8))
 my_linked_list.pop_first()
 my_linked_list.print_list()
 my_linked_list.pop_first()
