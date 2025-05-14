@@ -34,6 +34,14 @@ class LinkedList:
             pre.next = None
             self.length -= 1
         return temp
+    
+    def prepend(self, value):
+        new_node = Node(value)
+        temp = self.head
+        new_node.next = temp
+        self.head = new_node
+        self.length += 1
+        return True
         
     #     return
 
