@@ -83,6 +83,29 @@ class TestSetValue:
         assert normal_list.set_value(10, 9) == False
         assert normal_list.set_value(-1, 0) == False
 
+
+class TestInsert:
+
+    def test_insert_normal(self, normal_list):
+        assert normal_list.insert(1, 5) == True
+        assert normal_list.length == 3
+        normal_list.print_list()
+        assert normal_list.head.next.value == 5
+
+    def test_insert_start(self, normal_list):
+        assert normal_list.insert(0, 5) == True
+        assert normal_list.length == 3
+        assert normal_list.head.value == 5
+    
+    def test_insert_end(self, normal_list):
+        assert normal_list.insert(2, 5) == True
+        assert normal_list.length == 3
+        assert normal_list.tail.value == 5
+    
+    def test_insert_out_of_bounds(self, normal_list):
+        assert normal_list.insert(10, 9) == False
+        assert normal_list.insert(-1, 0) == False
+
     
 @pytest.fixture()
 def singleton_list():
@@ -101,7 +124,6 @@ def normal_list(singleton_list):
     singleton_list.head.next = tmp
     singleton_list.tail = tmp
     singleton_list.length += 1
-    print("normal list: ", singleton_list.tail.value)
     return singleton_list
 
 
