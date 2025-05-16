@@ -1,7 +1,4 @@
-class Node:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
+from node import Node
 
 class LinkedList:
     def __init__(self, value):
@@ -29,9 +26,9 @@ class LinkedList:
         else:
             while temp.next != None:
                 pre = temp
-                temp=temp.next
-            self.tail = pre.next
-            pre.next = None
+                temp = temp.next
+            self.tail = pre
+            self.tail.next = None
             self.length -= 1
         return temp.value
     
