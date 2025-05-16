@@ -19,7 +19,7 @@ class TestAppend:
 class TestPop:
     
     def test_pop_normal(self, normal_list):
-        value = normal_list.pop()
+        value = normal_list.pop().value
         assert value == 2
         assert normal_list.length == 1
 
@@ -86,7 +86,7 @@ class TestSetValue:
 
 class TestInsert:
 
-    def test_insert_normal(self, normal_list):
+    def test_insert_middle(self, normal_list):
         assert normal_list.insert(1, 5) == True
         assert normal_list.length == 3
         normal_list.print_list()
@@ -105,6 +105,30 @@ class TestInsert:
     def test_insert_out_of_bounds(self, normal_list):
         assert normal_list.insert(10, 9) == False
         assert normal_list.insert(-1, 0) == False
+
+class TestRemove:
+
+    def test_remove_middle(self, normal_list):
+        normal_list.prepend(0)
+        assert normal_list.remove(1).value == 1
+        assert normal_list.length == 2
+        assert normal_list.head.value == 0
+        assert normal_list.tail.value == 2
+
+        
+    def test_remove_start(self, normal_list):
+        assert normal_list.remove(0).value == 1 
+        assert normal_list.length == 1
+        assert normal_list.head.value == 2
+    
+    def test_remove_end(self, normal_list):
+        assert normal_list.remove(1).value == 2
+        assert normal_list.length == 1
+        assert normal_list.tail.value == 1
+    
+    def test_remove_out_of_bounds(self, normal_list):
+        assert normal_list.remove(10) == False
+        assert normal_list.remove(-1) == False
 
     
 @pytest.fixture()
