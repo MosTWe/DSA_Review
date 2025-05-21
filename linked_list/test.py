@@ -130,6 +130,17 @@ class TestRemove:
         assert normal_list.remove(10) == False
         assert normal_list.remove(-1) == False
 
+class TestReverse:
+
+    def test_reverse_normal(self, normal_list):
+        assert str(normal_list.reverse()) == "2 1"
+    
+    def test_reverse_singleton(self,singleton_list):
+        assert singleton_list.reverse() == singleton_list
+
+    def test_reverse_empty(self, empty_list):
+        assert empty_list.reverse() == empty_list
+
     
 @pytest.fixture()
 def singleton_list():
