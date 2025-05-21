@@ -51,18 +51,18 @@ class TestPrepend:
 class TestPopFirst:
     
     def test_pop_first_normal(self, normal_list):
-        normal_list.pop_first()
-        assert normal_list.head.value == 2
+        assert normal_list.pop_first().value == 1 
+        assert str(normal_list) == '2'
         assert normal_list.length == 1
     
     def test_pop_first_singleton(self, singleton_list):
-        singleton_list.pop_first()
+        assert singleton_list.pop_first().value == 1 
         assert singleton_list.head == None
         assert singleton_list.tail == None
         assert singleton_list.length == 0
     
     def test_pop_first_empty(self, empty_list):
-        assert empty_list.head == empty_list.tail
+        assert empty_list.pop_first() == empty_list.head
 
 class TestGet:
     

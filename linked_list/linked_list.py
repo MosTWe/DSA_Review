@@ -57,12 +57,11 @@ class LinkedList:
             self.head = None
             self.tail = None
             self.length = 0
-            return None
         else:
             self.head = self.head.next
             temp.next = None
             self.length -= 1
-            return temp
+        return temp
         
     def get(self, index):
         if index >= self.length or index < 0:
@@ -138,7 +137,7 @@ class LinkedList:
 
             self.head = self.tail
             self.tail = temp
-            
+
             while temp!=None:
                 temp.next = prev
                 prev = temp
@@ -156,5 +155,6 @@ class LinkedList:
 
 my_linked_list = LinkedList(4)
 my_linked_list.append(5)
+my_linked_list.append(6)
 print(my_linked_list)
 print(my_linked_list.reverse())
