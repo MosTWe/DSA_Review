@@ -133,17 +133,19 @@ class LinkedList:
     # O(n) time, O(1) space
         if self.length > 1:
             temp = self.head
+            prev = None
+            next = temp.next
+
             self.head = self.tail
             self.tail = temp
-            prev = self.tail
-            temp = temp.next
-            next = temp.next
+            
             while temp!=None:
                 temp.next = prev
+                prev = temp
                 temp = next
                 if next:
                     next = next.next
-            self.tail.next = None
+            # self.tail.next = None
         return self
     
     def print_list(self):
