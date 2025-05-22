@@ -98,7 +98,7 @@ class LinkedList:
     
     def remove(self, index):
         if index >= self.length or index < 0 :
-            return False
+            return None
         elif index == self.length-1:
             return self.pop()
         elif index == 0:
@@ -152,9 +152,3 @@ class LinkedList:
         while temp != None:
             print(temp.value)
             temp = temp.next
-
-my_linked_list = LinkedList(4)
-my_linked_list.append(5)
-my_linked_list.append(6)
-print(my_linked_list)
-print(my_linked_list.reverse())

@@ -127,8 +127,8 @@ class TestRemove:
         assert normal_list.tail.value == 1
     
     def test_remove_out_of_bounds(self, normal_list):
-        assert normal_list.remove(10) == False
-        assert normal_list.remove(-1) == False
+        assert normal_list.remove(10) == None
+        assert normal_list.remove(-1) == None
 
 class TestReverse:
 
